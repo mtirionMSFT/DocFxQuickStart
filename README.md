@@ -27,27 +27,27 @@ The easiest is to work with a [mono repository](https://mtirion.medium.com/monor
 In the steps below we'll consider the generation of the documentation website from this content structure:
 
 ```xaml
-├── .pipelines             // Azure DevOps pipeline for automatic generation and deployment
+├── .pipelines        // Azure DevOps pipeline for automatic generation and deployment
 │
-├── docs                     // all documents
+├── docs              // all documents
 │   ├── .attachments  // all images and other attachments used by documents
 │
-├── infrastructure       // Terraform scripts for creation of the Azure website
+├── infrastructure    // Terraform scripts for creation of the Azure website
 │
-├── src                        // all projects
-│   ├── build              // build settings
-│          ├── dotnet     // .NET build settings
+├── src               // all projects
+│   ├── build         // build settings
+│          ├── dotnet // .NET build settings
 │   ├── Directory.Build.props   // project settings for all .NET projects in sub folders
 │   ├── [Project folders]
 │
 ├── x-cross
-│   ├── toc.yml              // Cross reference definition (optional)
+│   ├── toc.yml       // Cross reference definition (optional)
 │
 ├── .markdownlint.json // Markdownlinter settings
-├── docfx.json               // DocFx configuration
-├── index.md                 // Website landing page
-├── toc.yml                    // Definition of the website header content links
-├── web.config              // web.config to enable search in deployed website
+├── docfx.json        // DocFx configuration
+├── index.md          // Website landing page
+├── toc.yml           // Definition of the website header content links
+├── web.config        // web.config to enable search in deployed website
 ```
 
 We'll be using the `DocLinkChecker` tool to validate all links in documentation and for orphaned attachments. That's the reason we have all attachments in the `.attachments` folder.
@@ -152,11 +152,11 @@ We suggest starting with a basic documentation structure in the **/docs** folder
 
 ```xaml
 ├── docs
-│   ├── .attachments                     // All images and other attachments used by documents
+│   ├── .attachments               // All images and other attachments used by documents
 │
 │   ├── architecture-decisions
 │           └── .order
-│           └── decision-log.md       // Sample index into all ADRs
+│           └── decision-log.md    // Sample index into all ADRs
 │           └── README.md          // Landing page architecture decisions
 │
 │   ├── getting-started
@@ -165,10 +165,10 @@ We suggest starting with a basic documentation structure in the **/docs** folder
 │
 │   ├── guidelines
 │           └── .order
-│           └── docs-guidelines.md  // General documentation guidelines
+│           └── docs-guidelines.md // General documentation guidelines
 │           └── README.md          // Landing page guidelines
 │
-│   ├── templates                          // all templates like ADR template and such
+│   ├── templates                  // all templates like ADR template and such
 │           └── .order
 │           └── README.md          // Landing page templates
 │
@@ -176,8 +176,8 @@ We suggest starting with a basic documentation structure in the **/docs** folder
 │           └── .order
 │           └── README.md          // Landing page working agreements
 │
-│   ├── .order                                // Providing a fixed order of files and directories
-│   ├── index.md                          // Landing page documentation
+│   ├── .order                     // Providing a fixed order of files and directories
+│   ├── index.md                   // Landing page documentation
 ```
 
 You can use templates like working agreements and such from the [CSE Playbook](https://github.com/microsoft/code-with-engineering-playbook/).
