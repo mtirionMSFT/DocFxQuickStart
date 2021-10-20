@@ -14,7 +14,7 @@ if errorlevel == 1 goto error
 
 rem **** Check the docs folder. On errors, quit processing
 echo Checking references and attachments
-src\DocLinkChecker\DocLinkChecker\bin\Debug\netcoreapp3.1\DocLinkChecker.exe -d .\docs -a
+src\DocLinkChecker\bin\Debug\netcoreapp3.1\DocLinkChecker.exe -d .\docs -a
 if errorlevel == 1 goto error
 
 rem **** Generate the table of contents of the docs folder. On errors, quit processing

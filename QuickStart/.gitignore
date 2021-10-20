@@ -1,5 +1,10 @@
 # Standard .gitignore from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore.
 
+# DocFxQuickStart specials
+QuickStart/docs/toc.yml
+_site/
+reference/
+
 # User-specific files
 *.rsuser
 *.suo
