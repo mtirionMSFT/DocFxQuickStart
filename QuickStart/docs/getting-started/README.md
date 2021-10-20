@@ -6,6 +6,8 @@ If you want an easy way to have a website with all your documentation coming fro
 
 To get you started quickly from scratch, a QuickStart folder is provided which can be copied with some common folder, files and settings mentioned in the steps below. Copy the content from the [QuickStart folder](https://github.com/mtirionMSFT/DocFxQuickStart/tree/master/QuickStart) folder to your own repository to get started in minutes.
 
+> [!TIP]
+>
 > **TLDR;**
 >
 > If you want a really quick start using Azure DevOps and Azure App Service without reading the what and how, follow these steps:
@@ -27,27 +29,27 @@ The easiest is to work with a [mono repository](https://mtirion.medium.com/monor
 In the steps below we'll consider the generation of the documentation website from this content structure:
 
 ```xaml
-├── .pipelines             // Azure DevOps pipeline for automatic generation and deployment
+├── .pipelines        // Azure DevOps pipeline for automatic generation and deployment
 │
-├── docs                     // all documents
+├── docs              // all documents
 │   ├── .attachments  // all images and other attachments used by documents
 │
-├── infrastructure       // Terraform scripts for creation of the Azure website
+├── infrastructure    // Terraform scripts for creation of the Azure website
 │
-├── src                        // all projects
-│   ├── build              // build settings
-│          ├── dotnet     // .NET build settings
+├── src               // all projects
+│   ├── build         // build settings
+│          ├── dotnet // .NET build settings
 │   ├── Directory.Build.props   // project settings for all .NET projects in sub folders
 │   ├── [Project folders]
 │
 ├── x-cross
-│   ├── toc.yml              // Cross reference definition (optional)
+│   ├── toc.yml       // Cross reference definition (optional)
 │
 ├── .markdownlint.json // Markdownlinter settings
-├── docfx.json               // DocFx configuration
-├── index.md                 // Website landing page
-├── toc.yml                    // Definition of the website header content links
-├── web.config              // web.config to enable search in deployed website
+├── docfx.json        // DocFx configuration
+├── index.md          // Website landing page
+├── toc.yml           // Definition of the website header content links
+├── web.config        // web.config to enable search in deployed website
 ```
 
 We'll be using the `DocLinkChecker` tool to validate all links in documentation and for orphaned attachments. That's the reason we have all attachments in the `.attachments` folder.
@@ -87,7 +89,8 @@ To make sure developers are forced to add the triple-slash comments by throwing 
 
 Now you are all set to generate documentation from your C# code. For more information about languages supported by DocFx and how to configure it, see [Introduction to Multiple Languages Support](https://dotnet.github.io/docfx/tutorial/universalreference/intro_multiple_langs_support.html?q=typescript).
 
-> **NOTE:** You can also add a PropertyGroup definition with the two settings in *Directory.Build.props* to have that settings in all projects. But in that case it will also be inherited in your Test projects.
+> [!NOTE]
+> You can also add a PropertyGroup definition with the two settings in *Directory.Build.props* to have that settings in all projects. But in that case it will also be inherited in your Test projects.
 
 ## 1. Install DocFx and markdownlint-cli
 
@@ -104,7 +107,8 @@ choco install markdownlint-cli
 
 Configuration for DocFx is done in a `docfx.json` file. Store this file in the root of your repository.
 
-> **NOTE:** You can store the docfx.json somewhere else in the hierarchy, but then you need to provide the path of the file as an argument to the docfx command so it can be located.
+> [!NOTE]
+> You can store the docfx.json somewhere else in the hierarchy, but then you need to provide the path of the file as an argument to the docfx command so it can be located.
 
 Below is a good configuration to start with, where documentation is in the **/docs** folder and the sources are in the **/src** folder:
 
@@ -152,11 +156,11 @@ We suggest starting with a basic documentation structure in the **/docs** folder
 
 ```xaml
 ├── docs
-│   ├── .attachments                     // All images and other attachments used by documents
+│   ├── .attachments               // All images and other attachments used by documents
 │
 │   ├── architecture-decisions
 │           └── .order
-│           └── decision-log.md       // Sample index into all ADRs
+│           └── decision-log.md    // Sample index into all ADRs
 │           └── README.md          // Landing page architecture decisions
 │
 │   ├── getting-started
@@ -165,10 +169,10 @@ We suggest starting with a basic documentation structure in the **/docs** folder
 │
 │   ├── guidelines
 │           └── .order
-│           └── docs-guidelines.md  // General documentation guidelines
+│           └── docs-guidelines.md // General documentation guidelines
 │           └── README.md          // Landing page guidelines
 │
-│   ├── templates                          // all templates like ADR template and such
+│   ├── templates                  // all templates like ADR template and such
 │           └── .order
 │           └── README.md          // Landing page templates
 │
@@ -176,8 +180,8 @@ We suggest starting with a basic documentation structure in the **/docs** folder
 │           └── .order
 │           └── README.md          // Landing page working agreements
 │
-│   ├── .order                                // Providing a fixed order of files and directories
-│   ├── index.md                          // Landing page documentation
+│   ├── .order                     // Providing a fixed order of files and directories
+│   ├── index.md                   // Landing page documentation
 ```
 
 You can use templates like working agreements and such from the [CSE Playbook](https://github.com/microsoft/code-with-engineering-playbook/).
@@ -199,7 +203,8 @@ To get started with the setup of this website, read the getting started document
 
 ## 4. Compile the companion tools and run them
 
-> **NOTE:** To explain each step, we'll be going through the various steps in the next few paragraphs. In the provided sample, a batch-file called **GenerateDocWebsite.cmd** is included. This script will take all the necessary steps to compile the tools, execute the checks, generate the table of contents and execute docfx to generate the website.
+> [!NOTE]
+> To explain each step, we'll be going through the various steps in the next few paragraphs. In the provided sample, a batch-file called **GenerateDocWebsite.cmd** is included. This script will take all the necessary steps to compile the tools, execute the checks, generate the table of contents and execute docfx to generate the website.
 
 To check for proper markdown formatting the **markdownlint-cli** tool is used. The command takes it's configuration from the `.markdownlint.json` file in the root of the project. To check all markdown files, simply execute this command:
 
@@ -209,7 +214,8 @@ markdownlint **/*.md
 
 In the QuickStart folder we've also included the two companion tools **TocDocFxCreation** and **DocLinkChecker**.
 
-> **NOTE**: The QuickStart folder contains a static version of the companion tools. To use the latest version, download it from the [DocFx Companion Tools repository](https://github.com/Ellerbach/docfx-companion-tools).
+> [!NOTE]
+> The QuickStart folder contains a static version of the companion tools. To use the latest version, download it from the [DocFx Companion Tools repository](https://github.com/Ellerbach/docfx-companion-tools).
 
 You can compile the tools from Visual Studio, but you can also run `dotnet build` in both tool folders.
 
@@ -229,7 +235,8 @@ TocDocFxCreation.exe -d ./docs -sri
 
 Run the `docfx` command to generate the website, by default in the **_site** folder.
 
-> **TIP:** If you want to check the website in your local environment, provide the **--serve** option to either the *docfx* command or the *GenerateDocWebsite* script. A small webserver is launched that hosts your website, which is accessible on localhost.
+> [!TIP]
+> If you want to check the website in your local environment, provide the **--serve** option to either the *docfx* command or the *GenerateDocWebsite* script. A small webserver is launched that hosts your website, which is accessible on localhost.
 
 ### Style of the website
 

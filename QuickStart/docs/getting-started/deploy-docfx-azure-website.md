@@ -16,7 +16,8 @@ choco install terraform
 
 ## 2. Set the proper variables
 
-> **IMPORTANT:** Make sure you modify the value of the **app_name**, **rg_name** and **rg_location** variables. The *app_name* value is appended by **azurewebsites.net** and must be unique. Otherwise the script will fail that it cannot create the website.
+> [!IMPORTANT]
+> Make sure you modify the value of the **app_name**, **rg_name** and **rg_location** variables. The *app_name* value is appended by **azurewebsites.net** and must be unique. Otherwise the script will fail that it cannot create the website.
 
 In the QuickStart folder setup, authentication is disabled. If you want that enabled, make sure you have create an *Application* in the Azure AD and have the *client ID*. This client id must be set as the value of the **client_id** variable in *variables.tf*. In the *main.tf* make sure you uncomment the authentication settings in the *app-service*. For more information see [Configure Azure AD authentication - Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad).
 
@@ -111,10 +112,12 @@ The deployment using Terraform is not included in the pipeline from the QuickSta
 
 The best way to create the resources and deploy to it, is to do this automatically in a pipeline. For this purpose the **.pipelines/documentation.yml** pipeline is provided. This pipeline is built for an Azure DevOps environment. Create a pipeline and reference this YAML file.
 
-> **IMPORTANT:** the QuickStart folder contains a web.config that is needed for deployment to IIS or Azure App Service. This enables the use of the json file for search requests. If you don't have this in place, the search of text will never return anything and result in 404's under the hood.
+> [!IMPORTANT]
+> the QuickStart folder contains a web.config that is needed for deployment to IIS or Azure App Service. This enables the use of the json file for search requests. If you don't have this in place, the search of text will never return anything and result in 404's under the hood.
 
 You have to create a Service Connection in your DevOps environment to connect to the Azure Subscription you want to deploy to.
 
-> **IMPORTANT:** set the variables **AzureConnectionName** to the name of the Service Connection and the **AzureAppServiceName** to the name you determined in the *infrastructure/variables.tf*.
+> [!IMPORTANT]
+> set the variables **AzureConnectionName** to the name of the Service Connection and the **AzureAppServiceName** to the name you determined in the *infrastructure/variables.tf*.
 
 In the QuickStart folder the pipeline uses `master` as trigger, which means that any push being done to master triggers the pipeline. You will probably change this to another branch.
