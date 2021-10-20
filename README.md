@@ -18,6 +18,8 @@ To get you started quickly from scratch, a QuickStart folder is provided which c
 >    Now you can create a pipeline in your Azure DevOps project that uses the *.pipelines/documentation.yml* and run it.
 >
 
+![Sample DocFx Website](SampleDocFxWebsite.png)
+
 ## Documents and projects folder structure
 
 The easiest is to work with a [mono repository](https://mtirion.medium.com/monorepo-for-beginners-45d5059ab40e) where documentation and code live together. If that's not the case in your situation but you still want to combine multiple repositories into one documentation website, you'll have to clone all repositories first to be able to combine the information. In this recipe we'll assume a monorepo is used.
