@@ -1,7 +1,7 @@
 # Standard .gitignore from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore.
 
 # DocFxQuickStart specials
-QuickStart/docs/toc.yml
+docs/toc.yml
 _site/
 reference/
 
