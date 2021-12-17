@@ -2,4 +2,4 @@ items:
   - name: Documentation
     href: docs/
   - name: Reference
-    href: reference/
+    href: output/reference/

@@ -2,8 +2,7 @@
 
 # DocFxQuickStart specials
 docs/toc.yml
-_site/
-reference/
+output/
 
 # User-specific files
 *.rsuser
