@@ -1,0 +1,742 @@
+### YamlMime:ManagedReference
+items:
+- uid: TocDocFxCreation.Domain.CommandlineOptions
+  commentId: T:TocDocFxCreation.Domain.CommandlineOptions
+  id: CommandlineOptions
+  parent: TocDocFxCreation.Domain
+  children:
+  - TocDocFxCreation.Domain.CommandlineOptions.AutoIndex
+  - TocDocFxCreation.Domain.CommandlineOptions.DocFolder
+  - TocDocFxCreation.Domain.CommandlineOptions.OutputFolder
+  - TocDocFxCreation.Domain.CommandlineOptions.UseOrder
+  - TocDocFxCreation.Domain.CommandlineOptions.UseOverride
+  - TocDocFxCreation.Domain.CommandlineOptions.Verbose
+  langs:
+  - csharp
+  - vb
+  name: CommandlineOptions
+  nameWithType: CommandlineOptions
+  fullName: TocDocFxCreation.Domain.CommandlineOptions
+  type: Class
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Domain/CommandlineOptions.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: CommandlineOptions
+    path: src/TocDocFxCreation/Domain/CommandlineOptions.cs
+    startLine: 10
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Domain
+  summary: "\nClass for command line options.\n"
+  example: []
+  syntax:
+    content: public class CommandlineOptions
+    content.vb: Public Class CommandlineOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: TocDocFxCreation.Domain.CommandlineOptions.DocFolder
+  commentId: P:TocDocFxCreation.Domain.CommandlineOptions.DocFolder
+  id: DocFolder
+  parent: TocDocFxCreation.Domain.CommandlineOptions
+  langs:
+  - csharp
+  - vb
+  name: DocFolder
+  nameWithType: CommandlineOptions.DocFolder
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.DocFolder
+  type: Property
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Domain/CommandlineOptions.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: DocFolder
+    path: src/TocDocFxCreation/Domain/CommandlineOptions.cs
+    startLine: 15
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Domain
+  summary: "\nGets or sets the folder with documents.\n"
+  example: []
+  syntax:
+    content: >-
+      [Option('d', "docfolder", Required = true, HelpText = "Folder containing the documents.")]
+
+      public string DocFolder { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Option("d"c, "docfolder", Required:=True, HelpText:="Folder containing the documents.")>
+
+      Public Property DocFolder As String
+  overload: TocDocFxCreation.Domain.CommandlineOptions.DocFolder*
+  attributes:
+  - type: CommandLine.OptionAttribute
+    ctor: CommandLine.OptionAttribute.#ctor(System.Char,System.String)
+    arguments:
+    - type: System.Char
+      value: d
+    - type: System.String
+      value: docfolder
+    namedArguments:
+    - name: Required
+      type: System.Boolean
+      value: true
+    - name: HelpText
+      type: System.String
+      value: Folder containing the documents.
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TocDocFxCreation.Domain.CommandlineOptions.OutputFolder
+  commentId: P:TocDocFxCreation.Domain.CommandlineOptions.OutputFolder
+  id: OutputFolder
+  parent: TocDocFxCreation.Domain.CommandlineOptions
+  langs:
+  - csharp
+  - vb
+  name: OutputFolder
+  nameWithType: CommandlineOptions.OutputFolder
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.OutputFolder
+  type: Property
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Domain/CommandlineOptions.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: OutputFolder
+    path: src/TocDocFxCreation/Domain/CommandlineOptions.cs
+    startLine: 21
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Domain
+  summary: "\nGets or sets the folder with documents.\n"
+  example: []
+  syntax:
+    content: >-
+      [Option('o', "outputfolder", Required = false, HelpText = "Folder to write the resulting toc.yml in.")]
+
+      public string OutputFolder { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Option("o"c, "outputfolder", Required:=False, HelpText:="Folder to write the resulting toc.yml in.")>
+
+      Public Property OutputFolder As String
+  overload: TocDocFxCreation.Domain.CommandlineOptions.OutputFolder*
+  attributes:
+  - type: CommandLine.OptionAttribute
+    ctor: CommandLine.OptionAttribute.#ctor(System.Char,System.String)
+    arguments:
+    - type: System.Char
+      value: o
+    - type: System.String
+      value: outputfolder
+    namedArguments:
+    - name: Required
+      type: System.Boolean
+      value: false
+    - name: HelpText
+      type: System.String
+      value: Folder to write the resulting toc.yml in.
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TocDocFxCreation.Domain.CommandlineOptions.Verbose
+  commentId: P:TocDocFxCreation.Domain.CommandlineOptions.Verbose
+  id: Verbose
+  parent: TocDocFxCreation.Domain.CommandlineOptions
+  langs:
+  - csharp
+  - vb
+  name: Verbose
+  nameWithType: CommandlineOptions.Verbose
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.Verbose
+  type: Property
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Domain/CommandlineOptions.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: Verbose
+    path: src/TocDocFxCreation/Domain/CommandlineOptions.cs
+    startLine: 27
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Domain
+  summary: "\nGets or sets a value indicating whether verbose information is shown in the output.\n"
+  example: []
+  syntax:
+    content: >-
+      [Option('v', "verbose", Required = false, HelpText = "Show verbose messages.")]
+
+      public bool Verbose { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Option("v"c, "verbose", Required:=False, HelpText:="Show verbose messages.")>
+
+      Public Property Verbose As Boolean
+  overload: TocDocFxCreation.Domain.CommandlineOptions.Verbose*
+  attributes:
+  - type: CommandLine.OptionAttribute
+    ctor: CommandLine.OptionAttribute.#ctor(System.Char,System.String)
+    arguments:
+    - type: System.Char
+      value: v
+    - type: System.String
+      value: verbose
+    namedArguments:
+    - name: Required
+      type: System.Boolean
+      value: false
+    - name: HelpText
+      type: System.String
+      value: Show verbose messages.
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TocDocFxCreation.Domain.CommandlineOptions.UseOrder
+  commentId: P:TocDocFxCreation.Domain.CommandlineOptions.UseOrder
+  id: UseOrder
+  parent: TocDocFxCreation.Domain.CommandlineOptions
+  langs:
+  - csharp
+  - vb
+  name: UseOrder
+  nameWithType: CommandlineOptions.UseOrder
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.UseOrder
+  type: Property
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Domain/CommandlineOptions.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: UseOrder
+    path: src/TocDocFxCreation/Domain/CommandlineOptions.cs
+    startLine: 33
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Domain
+  summary: "\nGets or sets a value indicating whether the .order files are used.\n"
+  example: []
+  syntax:
+    content: >-
+      [Option('s', "sequence", Required = false, HelpText = "Use the .order files for TOC sequence. Format are raws of: filename-without-extension")]
+
+      public bool UseOrder { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Option("s"c, "sequence", Required:=False, HelpText:="Use the .order files for TOC sequence. Format are raws of: filename-without-extension")>
+
+      Public Property UseOrder As Boolean
+  overload: TocDocFxCreation.Domain.CommandlineOptions.UseOrder*
+  attributes:
+  - type: CommandLine.OptionAttribute
+    ctor: CommandLine.OptionAttribute.#ctor(System.Char,System.String)
+    arguments:
+    - type: System.Char
+      value: s
+    - type: System.String
+      value: sequence
+    namedArguments:
+    - name: Required
+      type: System.Boolean
+      value: false
+    - name: HelpText
+      type: System.String
+      value: 'Use the .order files for TOC sequence. Format are raws of: filename-without-extension'
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TocDocFxCreation.Domain.CommandlineOptions.UseOverride
+  commentId: P:TocDocFxCreation.Domain.CommandlineOptions.UseOverride
+  id: UseOverride
+  parent: TocDocFxCreation.Domain.CommandlineOptions
+  langs:
+  - csharp
+  - vb
+  name: UseOverride
+  nameWithType: CommandlineOptions.UseOverride
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.UseOverride
+  type: Property
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Domain/CommandlineOptions.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: UseOverride
+    path: src/TocDocFxCreation/Domain/CommandlineOptions.cs
+    startLine: 39
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Domain
+  summary: "\nGets or sets a value indicating whether the .order files are used.\n"
+  example: []
+  syntax:
+    content: >-
+      [Option('r', "override", Required = false, HelpText = "Use the .override files for TOC file name override. Format are raws of: filename-without-extension;Title you want")]
+
+      public bool UseOverride { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Option("r"c, "override", Required:=False, HelpText:="Use the .override files for TOC file name override. Format are raws of: filename-without-extension;Title you want")>
+
+      Public Property UseOverride As Boolean
+  overload: TocDocFxCreation.Domain.CommandlineOptions.UseOverride*
+  attributes:
+  - type: CommandLine.OptionAttribute
+    ctor: CommandLine.OptionAttribute.#ctor(System.Char,System.String)
+    arguments:
+    - type: System.Char
+      value: r
+    - type: System.String
+      value: override
+    namedArguments:
+    - name: Required
+      type: System.Boolean
+      value: false
+    - name: HelpText
+      type: System.String
+      value: 'Use the .override files for TOC file name override. Format are raws of: filename-without-extension;Title you want'
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: TocDocFxCreation.Domain.CommandlineOptions.AutoIndex
+  commentId: P:TocDocFxCreation.Domain.CommandlineOptions.AutoIndex
+  id: AutoIndex
+  parent: TocDocFxCreation.Domain.CommandlineOptions
+  langs:
+  - csharp
+  - vb
+  name: AutoIndex
+  nameWithType: CommandlineOptions.AutoIndex
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.AutoIndex
+  type: Property
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Domain/CommandlineOptions.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: AutoIndex
+    path: src/TocDocFxCreation/Domain/CommandlineOptions.cs
+    startLine: 45
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Domain
+  summary: "\nGets or sets a value indicating whether an index is automatically added.\n"
+  example: []
+  syntax:
+    content: >-
+      [Option('i', "index", Required = false, HelpText = "Auto-generate a file index in each folder.")]
+
+      public bool AutoIndex { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Option("i"c, "index", Required:=False, HelpText:="Auto-generate a file index in each folder.")>
+
+      Public Property AutoIndex As Boolean
+  overload: TocDocFxCreation.Domain.CommandlineOptions.AutoIndex*
+  attributes:
+  - type: CommandLine.OptionAttribute
+    ctor: CommandLine.OptionAttribute.#ctor(System.Char,System.String)
+    arguments:
+    - type: System.Char
+      value: i
+    - type: System.String
+      value: index
+    namedArguments:
+    - name: Required
+      type: System.Boolean
+      value: false
+    - name: HelpText
+      type: System.String
+      value: Auto-generate a file index in each folder.
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: TocDocFxCreation.Domain
+  commentId: N:TocDocFxCreation.Domain
+  name: TocDocFxCreation.Domain
+  nameWithType: TocDocFxCreation.Domain
+  fullName: TocDocFxCreation.Domain
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TocDocFxCreation.Domain.CommandlineOptions.DocFolder*
+  commentId: Overload:TocDocFxCreation.Domain.CommandlineOptions.DocFolder
+  name: DocFolder
+  nameWithType: CommandlineOptions.DocFolder
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.DocFolder
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: TocDocFxCreation.Domain.CommandlineOptions.OutputFolder*
+  commentId: Overload:TocDocFxCreation.Domain.CommandlineOptions.OutputFolder
+  name: OutputFolder
+  nameWithType: CommandlineOptions.OutputFolder
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.OutputFolder
+- uid: TocDocFxCreation.Domain.CommandlineOptions.Verbose*
+  commentId: Overload:TocDocFxCreation.Domain.CommandlineOptions.Verbose
+  name: Verbose
+  nameWithType: CommandlineOptions.Verbose
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.Verbose
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: TocDocFxCreation.Domain.CommandlineOptions.UseOrder*
+  commentId: Overload:TocDocFxCreation.Domain.CommandlineOptions.UseOrder
+  name: UseOrder
+  nameWithType: CommandlineOptions.UseOrder
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.UseOrder
+- uid: TocDocFxCreation.Domain.CommandlineOptions.UseOverride*
+  commentId: Overload:TocDocFxCreation.Domain.CommandlineOptions.UseOverride
+  name: UseOverride
+  nameWithType: CommandlineOptions.UseOverride
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.UseOverride
+- uid: TocDocFxCreation.Domain.CommandlineOptions.AutoIndex*
+  commentId: Overload:TocDocFxCreation.Domain.CommandlineOptions.AutoIndex
+  name: AutoIndex
+  nameWithType: CommandlineOptions.AutoIndex
+  fullName: TocDocFxCreation.Domain.CommandlineOptions.AutoIndex

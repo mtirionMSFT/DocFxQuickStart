@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: DocLinkChecker.Helpers
+  commentId: N:DocLinkChecker.Helpers
+  id: DocLinkChecker.Helpers
+  children:
+  - DocLinkChecker.Helpers.MessageHelper
+  langs:
+  - csharp
+  - vb
+  name: DocLinkChecker.Helpers
+  nameWithType: DocLinkChecker.Helpers
+  fullName: DocLinkChecker.Helpers
+  type: Namespace
+  assemblies:
+  - DocLinkChecker
+references:
+- uid: DocLinkChecker.Helpers.MessageHelper
+  commentId: T:DocLinkChecker.Helpers.MessageHelper
+  name: MessageHelper
+  nameWithType: MessageHelper
+  fullName: DocLinkChecker.Helpers.MessageHelper

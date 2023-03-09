@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: TocDocFxCreation.Helpers
+  commentId: N:TocDocFxCreation.Helpers
+  id: TocDocFxCreation.Helpers
+  children:
+  - TocDocFxCreation.Helpers.MessageHelper
+  langs:
+  - csharp
+  - vb
+  name: TocDocFxCreation.Helpers
+  nameWithType: TocDocFxCreation.Helpers
+  fullName: TocDocFxCreation.Helpers
+  type: Namespace
+  assemblies:
+  - TocDocFxCreation
+references:
+- uid: TocDocFxCreation.Helpers.MessageHelper
+  commentId: T:TocDocFxCreation.Helpers.MessageHelper
+  name: MessageHelper
+  nameWithType: MessageHelper
+  fullName: TocDocFxCreation.Helpers.MessageHelper

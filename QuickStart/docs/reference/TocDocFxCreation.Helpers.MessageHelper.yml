@@ -1,0 +1,535 @@
+### YamlMime:ManagedReference
+items:
+- uid: TocDocFxCreation.Helpers.MessageHelper
+  commentId: T:TocDocFxCreation.Helpers.MessageHelper
+  id: MessageHelper
+  parent: TocDocFxCreation.Helpers
+  children:
+  - TocDocFxCreation.Helpers.MessageHelper.#ctor(TocDocFxCreation.Domain.CommandlineOptions)
+  - TocDocFxCreation.Helpers.MessageHelper.Error(System.String)
+  - TocDocFxCreation.Helpers.MessageHelper.Verbose(System.String)
+  - TocDocFxCreation.Helpers.MessageHelper.Warning(System.String)
+  langs:
+  - csharp
+  - vb
+  name: MessageHelper
+  nameWithType: MessageHelper
+  fullName: TocDocFxCreation.Helpers.MessageHelper
+  type: Class
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Helpers/MessageHelper.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: MessageHelper
+    path: src/TocDocFxCreation/Helpers/MessageHelper.cs
+    startLine: 11
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Helpers
+  summary: "\nHelper methods to write messages to the console.\n"
+  example: []
+  syntax:
+    content: public class MessageHelper
+    content.vb: Public Class MessageHelper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: TocDocFxCreation.Helpers.MessageHelper.#ctor(TocDocFxCreation.Domain.CommandlineOptions)
+  commentId: M:TocDocFxCreation.Helpers.MessageHelper.#ctor(TocDocFxCreation.Domain.CommandlineOptions)
+  id: '#ctor(TocDocFxCreation.Domain.CommandlineOptions)'
+  parent: TocDocFxCreation.Helpers.MessageHelper
+  langs:
+  - csharp
+  - vb
+  name: MessageHelper(CommandlineOptions)
+  nameWithType: MessageHelper.MessageHelper(CommandlineOptions)
+  fullName: TocDocFxCreation.Helpers.MessageHelper.MessageHelper(TocDocFxCreation.Domain.CommandlineOptions)
+  type: Constructor
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Helpers/MessageHelper.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: .ctor
+    path: src/TocDocFxCreation/Helpers/MessageHelper.cs
+    startLine: 19
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Helpers
+  summary: "\nInitializes a new instance of the <xref href=\"TocDocFxCreation.Helpers.MessageHelper\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public MessageHelper(CommandlineOptions options)
+    parameters:
+    - id: options
+      type: TocDocFxCreation.Domain.CommandlineOptions
+      description: Command line options.
+    content.vb: Public Sub New(options As CommandlineOptions)
+  overload: TocDocFxCreation.Helpers.MessageHelper.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TocDocFxCreation.Helpers.MessageHelper.Verbose(System.String)
+  commentId: M:TocDocFxCreation.Helpers.MessageHelper.Verbose(System.String)
+  id: Verbose(System.String)
+  parent: TocDocFxCreation.Helpers.MessageHelper
+  langs:
+  - csharp
+  - vb
+  name: Verbose(String)
+  nameWithType: MessageHelper.Verbose(String)
+  fullName: TocDocFxCreation.Helpers.MessageHelper.Verbose(System.String)
+  type: Method
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Helpers/MessageHelper.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: Verbose
+    path: src/TocDocFxCreation/Helpers/MessageHelper.cs
+    startLine: 28
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Helpers
+  summary: "\nHelper method for verbose messages.\n"
+  example: []
+  syntax:
+    content: public void Verbose(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: Message to show in verbose mode.
+    content.vb: Public Sub Verbose(message As String)
+  overload: TocDocFxCreation.Helpers.MessageHelper.Verbose*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TocDocFxCreation.Helpers.MessageHelper.Warning(System.String)
+  commentId: M:TocDocFxCreation.Helpers.MessageHelper.Warning(System.String)
+  id: Warning(System.String)
+  parent: TocDocFxCreation.Helpers.MessageHelper
+  langs:
+  - csharp
+  - vb
+  name: Warning(String)
+  nameWithType: MessageHelper.Warning(String)
+  fullName: TocDocFxCreation.Helpers.MessageHelper.Warning(System.String)
+  type: Method
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Helpers/MessageHelper.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: Warning
+    path: src/TocDocFxCreation/Helpers/MessageHelper.cs
+    startLine: 40
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Helpers
+  summary: "\nHelper method for warning messages.\n"
+  example: []
+  syntax:
+    content: public void Warning(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: Message to show in verbose mode.
+    content.vb: Public Sub Warning(message As String)
+  overload: TocDocFxCreation.Helpers.MessageHelper.Warning*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: TocDocFxCreation.Helpers.MessageHelper.Error(System.String)
+  commentId: M:TocDocFxCreation.Helpers.MessageHelper.Error(System.String)
+  id: Error(System.String)
+  parent: TocDocFxCreation.Helpers.MessageHelper
+  langs:
+  - csharp
+  - vb
+  name: Error(String)
+  nameWithType: MessageHelper.Error(String)
+  fullName: TocDocFxCreation.Helpers.MessageHelper.Error(System.String)
+  type: Method
+  source:
+    remote:
+      path: QuickStart/src/TocDocFxCreation/Helpers/MessageHelper.cs
+      branch: master
+      repo: https://github.com/mtirionMSFT/DocFxQuickStart.git
+    id: Error
+    path: src/TocDocFxCreation/Helpers/MessageHelper.cs
+    startLine: 52
+  assemblies:
+  - TocDocFxCreation
+  namespace: TocDocFxCreation.Helpers
+  summary: "\nHelper method for error messages.\n"
+  example: []
+  syntax:
+    content: public void Error(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: Message to show in verbose mode.
+    content.vb: Public Sub Error(message As String)
+  overload: TocDocFxCreation.Helpers.MessageHelper.Error*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: TocDocFxCreation.Helpers
+  commentId: N:TocDocFxCreation.Helpers
+  name: TocDocFxCreation.Helpers
+  nameWithType: TocDocFxCreation.Helpers
+  fullName: TocDocFxCreation.Helpers
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TocDocFxCreation.Helpers.MessageHelper
+  commentId: T:TocDocFxCreation.Helpers.MessageHelper
+  name: MessageHelper
+  nameWithType: MessageHelper
+  fullName: TocDocFxCreation.Helpers.MessageHelper
+- uid: TocDocFxCreation.Helpers.MessageHelper.#ctor*
+  commentId: Overload:TocDocFxCreation.Helpers.MessageHelper.#ctor
+  name: MessageHelper
+  nameWithType: MessageHelper.MessageHelper
+  fullName: TocDocFxCreation.Helpers.MessageHelper.MessageHelper
+- uid: TocDocFxCreation.Domain.CommandlineOptions
+  commentId: T:TocDocFxCreation.Domain.CommandlineOptions
+  parent: TocDocFxCreation.Domain
+  name: CommandlineOptions
+  nameWithType: CommandlineOptions
+  fullName: TocDocFxCreation.Domain.CommandlineOptions
+- uid: TocDocFxCreation.Domain
+  commentId: N:TocDocFxCreation.Domain
+  name: TocDocFxCreation.Domain
+  nameWithType: TocDocFxCreation.Domain
+  fullName: TocDocFxCreation.Domain
+- uid: TocDocFxCreation.Helpers.MessageHelper.Verbose*
+  commentId: Overload:TocDocFxCreation.Helpers.MessageHelper.Verbose
+  name: Verbose
+  nameWithType: MessageHelper.Verbose
+  fullName: TocDocFxCreation.Helpers.MessageHelper.Verbose
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: TocDocFxCreation.Helpers.MessageHelper.Warning*
+  commentId: Overload:TocDocFxCreation.Helpers.MessageHelper.Warning
+  name: Warning
+  nameWithType: MessageHelper.Warning
+  fullName: TocDocFxCreation.Helpers.MessageHelper.Warning
+- uid: TocDocFxCreation.Helpers.MessageHelper.Error*
+  commentId: Overload:TocDocFxCreation.Helpers.MessageHelper.Error
+  name: Error
+  nameWithType: MessageHelper.Error
+  fullName: TocDocFxCreation.Helpers.MessageHelper.Error
