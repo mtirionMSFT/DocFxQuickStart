@@ -13,11 +13,11 @@ To get you started quickly from scratch, a QuickStart folder is provided which c
 > If you want a really quick start using Azure DevOps and Azure App Service without reading the what and how, follow these steps:
 >
 > 1. **Azure DevOps:** If you don't have it yet, create a project in Azure DevOps and [create a Service Connection to your Azure environment](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops). Clone the repository.
-> 2. **QuickStart folder:** Copy the contents of the QuickStart folder to the root of your repository.
+> 2. **QuickStart folder:** Copy the contents of the QuickStart folder to the root of your repository, except for the docs folder if you already have one, the .gitignore and the README.md.
 > 3. **Azure:** Create a resource group in your Azure environment where the documentation website resources should be created.
 > 4. **Create Azure resources:** Fill in the default values in *infrastructure/variables.tf* and run the commands from [Step 3 - Deploy Azure resources from your local machine](deploy-docfx-azure-website.md#3-deploy-azure-resources-from-your-local-machine) to create the Azure Resources.
-> 5. **Pipeline:** Fill in the variables in *.pipelines/documentation.yml*, commit the changes and push the contents of the repository to your branch (possibly through a PR).
->    Now you can create a pipeline in your Azure DevOps project that uses the *.pipelines/documentation.yml* and run it.
+> 5. **Pipeline:** Fill in the variables in *DocFx/.pipelines/documentation.yml*, commit the changes and push the contents of the repository to your branch (possibly through a PR).
+>    Now you can create a pipeline in your Azure DevOps project that uses the *DocFx/.pipelines/documentation.yml* and run it.
 >
 
 ![Sample DocFx Website](../.attachments/SampleDocFxWebsite.png)
@@ -29,27 +29,30 @@ The easiest is to work with a [mono repository](https://mtirion.medium.com/monor
 In the steps below we'll consider the generation of the documentation website from this content structure:
 
 ```xaml
-├── .pipelines        // Azure DevOps pipeline for automatic generation and deployment
+├── DocFx               // all documents
+│   ├── .pipelines      // Azure DevOps pipeline for automatic generation and deployment
+│   ├── infrastructure  // Terraform scripts for creation of the Azure website
+│   ├── templates       // Templates for website and PDF generation
+│   ├── GenerateDoc.cmd // Command file for local execution for generating website and PDF
+│   ├── web.config      // web.config to enable search in deployed website (IIS)
 │
-├── docs              // all documents
-│   ├── .attachments  // all images and other attachments used by documents
+├── docs                // all documents
+│   ├── .attachments    // all images and other attachments used by documents
 │
-├── infrastructure    // Terraform scripts for creation of the Azure website
-│
-├── src               // all projects
-│   ├── build         // build settings
-│          ├── dotnet // .NET build settings
+├── src                 // all projects
+│   ├── build           // build settings
+│          ├── dotnet   // .NET build settings
 │   ├── Directory.Build.props   // project settings for all .NET projects in sub folders
 │   ├── [Project folders]
 │
 ├── x-cross
-│   ├── toc.yml       // Cross reference definition (optional)
+│   ├── toc.yml         // Cross reference definition (optional)
 │
-├── .markdownlint.json // Markdownlinter settings
-├── docfx.json        // DocFx configuration
-├── index.md          // Website landing page
-├── toc.yml           // Definition of the website header content links
-├── web.config        // web.config to enable search in deployed website
+├── .markdownlint.json  // Markdownlinter settings
+├── docfx.json          // DocFx configuration
+├── index.md            // Website landing page
+├── README.md           // Description of folders and files here (repo only, not in docs)
+├── toc.yml             // Definition of the website header content links
 ```
 
 We'll be using the `DocLinkChecker` tool to validate all links in documentation and for orphaned attachments. That's the reason we have all attachments in the `.attachments` folder.
@@ -64,7 +67,7 @@ A `.markdownlint.json` is included with the contents below. The [MD013 setting](
 }
 ```
 
-The contents of the **.pipelines** and **infrastructure** folders are explained in the recipe [Deploy the DocFx Documentation website to an Azure Website automatically](deploy-docfx-azure-website.md).
+The contents of the **DocFx/.pipelines** and **DocFx/infrastructure** folders are explained in the recipe [Deploy the DocFx Documentation website to an Azure Website automatically](deploy-docfx-azure-website.md).
 
 ## Reference documentation from source code
 
@@ -114,39 +117,73 @@ Below is a good configuration to start with, where documentation is in the **/do
 
 ```json
 {
-    "metadata": [
+  "metadata": [
     {
-          "src": [
-          {
-              "files": [ "src/**.csproj" ],
-              "exclude": [ "_site/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
-          }
-          ],
-          "dest": "reference",
-          "disableGitFeatures": false
-       }
-    ],
-    "build": {
-        "content": [
-            { "files": [ "reference/**" ] },
-            {
-                "files": [ "**.md", "**/toc.yml" ],
-                "exclude": [ "_site/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
-            }
-        ],
-        "resource": [
-            { "files": ["docs/.attachments/**"] },
-            { "files": ["web.config"] }
-        ],
-        "template": [ "templates/cse" ],
-        "globalMetadata": {
-            "_appTitle": "CSE Documentation",
-            "_enableSearch": true
-        },
-        "markdownEngineName": "markdig",
-        "dest": "_site",
-        "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"]
+      "src": [
+        {
+          "files": ["src/**.csproj"],
+          "exclude": [ "output/_site/**", "output/_pdf/**", "DocFx/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
+        }
+      ],
+      "dest": "output/reference",
+      "disableGitFeatures": false
     }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": ["output/reference/**"]
+      },
+      {
+        "files": ["**.md", "**/toc.yml"],
+        "exclude": [ "README.md", "output/_site/**", "output/_pdf/**", "DocFx/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["docs/.attachments/**"]
+      },
+      {
+        "src": "DocFx",
+        "files": ["web.config"]
+      }
+    ],
+    "template": ["DocFx/templates/cse"],
+    "globalMetadata": {
+      "_appTitle": "CSE Documentation",
+      "_enableSearch": true
+    },
+    "markdownEngineName": "markdig",
+    "dest": "output/_site",
+    "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"]
+  },
+  "pdf": {
+    "name": "CSE-Documentation",
+    "coverTitle": "CSE Documentation",
+    "content": [
+      {
+        "files": ["output/reference/**"]
+      },
+      {
+        "files": ["**.md", "x-cross/toc.yml"],
+        "exclude": [ "output/_site/**", "output/_pdf/**", "DocFx/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["docs/.attachments/**"]
+      }
+    ],
+    "template": ["DocFx/templates/pdf.cse"],
+    "globalMetadata": {
+      "_appTitle": "CSE Documentation"
+    },
+    "wkhtmltopdf": {
+      "additionalArguments": "--enable-local-file-access"
+    },
+    "markdownEngineName": "markdig",
+    "dest": "output/_pdf"
+  }
 }
 ```
 

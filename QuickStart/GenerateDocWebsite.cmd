@@ -1,32 +1,29 @@
 @echo off
 
-rem **** Build the tools
-echo Building the tools
-dotnet build src\TocDocFxCreation
-if errorlevel == 1 goto error
-dotnet build src\DocLinkChecker
-if errorlevel == 1 goto error
+rem **** Get the DocFx tools ****
+rem choco install docfx-companion-tools -y
 
 rem **** Check for markdown erros
 echo Checking markdown syntax
-call markdownlint **/*.md
+call markdownlint **/docs/*.md
 if errorlevel == 1 goto error
 
 rem **** Check the docs folder. On errors, quit processing
 echo Checking references and attachments
-src\DocLinkChecker\bin\Debug\netcoreapp3.1\DocLinkChecker.exe -d .\docs -a
+doclinkchecker -d ./docs -a
 if errorlevel == 1 goto error
 
 rem **** Generate the table of contents of the docs folder. On errors, quit processing
 echo Generating table of contents
-src\TocDocFxCreation\bin\Debug\net5.0\TocDocFxCreation.exe -d .\docs -sri
+docfxtocgenerator -d ./docs -sri
 if errorlevel == 1 goto error
 
 rem **** Clean up old generated files
 echo Clean up previous generated contents
 if exist _site rd _site /s /q
+if exist _pdf rd _pdf /s /q
 if exist obj rd obj /s /q
-if exist reference rd reference /s /q
+if exist docs\reference rd docs\reference /s /q
 
 rem **** Generated the website
 echo Generating website in _site
