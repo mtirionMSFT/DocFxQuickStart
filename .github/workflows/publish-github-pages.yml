@@ -2,19 +2,19 @@ name: Docs
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-    - master
-    paths:
-    - QuickStart/src/**
-    - QuickStart/docs/**
-    - .github/workflows/publish-github-pages.yml
-  pull_request:
-    branches:
-    - main
-    paths:
-    - QuickStart/docs/**
-    - .github/workflows/publish-github-pages.yml
+  #push:
+  #  branches:
+  #  - master
+  #  paths:
+  #  - QuickStart/src/**
+  #  - QuickStart/docs/**
+  #  - .github/workflows/publish-github-pages.yml
+  #pull_request:
+  #  branches:
+  #  - main
+  #  paths:
+  #  - QuickStart/docs/**
+  #  - .github/workflows/publish-github-pages.yml
 
 jobs:
   generate-docs:
