@@ -19,9 +19,6 @@
           { "files": ["**/.attachments/**", "**/images/**" ] },
           { "files": ["web.config"] }
       ],
-      "xref": [
-        "docs/platform/xrefmap.yml"
-      ],
       "template": [ "default", "./docfx/templates/website" ],
       "globalMetadata": {
           "_appTitle": "QuickStart Documentation",

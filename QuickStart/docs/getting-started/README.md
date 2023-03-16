@@ -16,8 +16,8 @@ To get you started quickly from scratch, a QuickStart folder is provided which c
 > 2. **QuickStart folder:** Copy the contents of the QuickStart folder to the root of your repository, except for the docs folder if you already have one, the .gitignore and the README.md.
 > 3. **Azure:** Create a resource group in your Azure environment where the documentation website resources should be created.
 > 4. **Create Azure resources:** Fill in the default values in *infrastructure/variables.tf* and run the commands from [Step 3 - Deploy Azure resources from your local machine](deploy-docfx-azure-website.md#3-deploy-azure-resources-from-your-local-machine) to create the Azure Resources.
-> 5. **Pipeline:** Fill in the variables in *DocFx/.pipelines/documentation.yml*, commit the changes and push the contents of the repository to your branch (possibly through a PR).
->    Now you can create a pipeline in your Azure DevOps project that uses the *DocFx/.pipelines/documentation.yml* and run it.
+> 5. **Pipeline:** Fill in the variables in *samples/pipelines/azure-devops/documentation.yml*, commit the changes and push the contents of the repository to your branch (possibly through a PR).
+>    Now you can create a pipeline in your Azure DevOps project that uses the *samples/pipelines/azure-devops/documentation.yml* and run it.
 >
 
 ![Sample DocFx Website](../.attachments/SampleDocFxWebsite.png)
