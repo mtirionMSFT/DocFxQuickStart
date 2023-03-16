@@ -30,25 +30,5 @@
       "markdownEngineName": "markdig",
       "dest": "_site",
       "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"]
-  },
-  "pdf": {
-    "name": "QuickStart-Documentation",
-    "coverTitle": "Quick Start Documentation",
-    "content": [
-      { "files": ["README.md", "docs/**/*.{md,yml}", "docfx/x-cross/*.yml"] }
-    ],
-    "resource": [
-      { "files": ["**/.attachments/**", "**/images/**" ] },
-      { "files": ["web.config"] }
-    ],
-    "template": ["pdf.default", "./docfx/templates/pdf"],
-    "globalMetadata": {
-      "_appTitle": "QuickStart Documentation"
-    },
-    "wkhtmltopdf": {
-      "additionalArguments": "--enable-local-file-access"
-    },
-    "markdownEngineName": "markdig",
-    "dest": "_pdf"
   }
 }
