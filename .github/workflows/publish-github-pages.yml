@@ -1,6 +1,7 @@
 name: Docs
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - master
@@ -14,7 +15,6 @@ on:
     paths:
     - QuickStart/docs/**
     - .github/workflows/publish-github-pages.yml
-  workflow_dispatch:
 
 jobs:
   generate-docs:
