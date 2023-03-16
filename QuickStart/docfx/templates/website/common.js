@@ -1,4 +1,4 @@
-// Copyright (c) LSEG. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
 exports.path = {};
 exports.path.getFileNameWithoutExtension = getFileNameWithoutExtension;
 exports.path.getDirectoryName = getDirectoryName;
