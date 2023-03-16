@@ -9,4 +9,4 @@ To get started with the setup of this website, read the getting started document
 
 ## Style of this website
 
-This documentation website is currently setup with the basics of the [DocFx Material](https://ovasquez.github.io/docfx-material/) style added with the Microsoft logo. The combination can be found in **/docfx/template**.
+This documentation website is currently setup with the basics of the [DocFx Material](https://ovasquez.github.io/docfx-material/) style added with the Microsoft logo. The combination can be found in **/QuickStart/docfx/template**.

@@ -1,6 +1,6 @@
 # QuickStart
 
-Below a description of the files and folders in the Quick Start.
+Below a description of the files and folders in the Quick Start folder.
 
 | File/Folder | Purpose | Copy to your environment |
 | --- | --- | --- |
