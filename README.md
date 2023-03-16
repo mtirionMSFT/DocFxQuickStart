@@ -37,14 +37,9 @@ If you have taken care of the steps above, you can run the **GenerateDocWebsite.
 >
 > If you don't have Chocolatey on your machine, go to [the Chocolatey Install page](https://chocolatey.org/install) and follow the instructions.
 
-## Create Azure App Service and Publish the Documentation
+## Publish the Documentation
 
-Now you have the documentation, you can automate the publication process in an Azure DevOps pipeline or GitHub Actions workflow.
-
-1. **Azure:** Create a resource group in your Azure environment where the documentation website resources should be created.
-4. **Create Azure resources:** Fill in the default values in *deployments/terrafor/variables.tf* and run the commands from [Step 3 - Deploy Azure resources from your local machine](deploy-docfx-azure-website.md#3-deploy-azure-resources-from-your-local-machine) to create the Azure Resources.
-7. **Pipeline:** Fill in the variables in *pipelines/azure-devops/documentation.yml*, commit the changes and push the contents of the repository to your branch (possibly through a PR).
-   Now you can create a pipeline in your Azure DevOps project that uses the *pipelines/azure-devops/documentation.yml* and run it.
+Now you have the documentation, you can automate the publication process in an Azure DevOps pipeline or GitHub Actions workflow. There are examples for these in the *samples* folder. See [Deploy the DocFx Documentation website to an Azure Website automatically](./deploy-docfx-azure-website.md) for a walkthrough how to deploy from an Azure DevOps pipeline to an Azure Web App.
 
 This is the result if you publish all the content of the quick start to a website.
 
