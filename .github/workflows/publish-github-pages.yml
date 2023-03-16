@@ -5,14 +5,14 @@ on:
     branches:
     - master
     paths:
-    - src/**
-    - docs/**
+    - QuickStart/src/**
+    - QuickStart/docs/**
     - .github/workflows/publish-github-pages.yml
   pull_request:
     branches:
     - main
     paths:
-    - docs/**
+    - QuickStart/docs/**
     - .github/workflows/publish-github-pages.yml
   workflow_dispatch:
 
@@ -35,6 +35,7 @@ jobs:
         args: install docfx docfx-companion-tools
 
     - name: Generate table of content
+      working-directory: QuickStart
       run: docfxtocgenerator -d ./docs -sri
       continue-on-error: false
 
