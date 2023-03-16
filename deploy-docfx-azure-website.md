@@ -2,9 +2,9 @@
 
 In the [README](README.md) the process is described to generate content of a documentation website using DocFx. This document describes how to setup an Azure Website to host the content and automate the deployment to it using a pipeline in Azure DevOps.
 
-The [QuickStart folder](./QuickStart) that is provided for a quick setup of DocFx generation also contains the files explained in this document. Especially the **.pipelines** and **infrastructure** folders.
+The [QuickStart folder](./QuickStart) that is provided for a quick setup of DocFx generation also contains the files explained in this document. Especially the **pipelines** and **deployment** folders.
 
-The following steps can be followed when using the QuickStart folder. In the **infrastructure** folder you can find the Terraform files to create the website in an Azure environment. Out of the box, the script will create a website where the documentation content can be deployed to.
+The following steps can be followed when using the QuickStart folder. In the **deployment/terraform** folder you can find the Terraform files to create the website in an Azure environment. Out of the box, the script will create a website where the documentation content can be deployed to.
 
 ## 1. Install Terraform
 
@@ -109,12 +109,12 @@ The deployment using Terraform is not included in the pipeline from the QuickSta
 
 ## 4. Deploy the website from a pipeline
 
-The best way to create the resources and deploy to it, is to do this automatically in a pipeline. For this purpose the **.pipelines/documentation.yml** pipeline is provided. This pipeline is built for an Azure DevOps environment. Create a pipeline and reference this YAML file.
+The best way to create the resources and deploy to it, is to do this automatically in a pipeline. For this purpose the **pipelines/azure-devops/documentation.yml** pipeline is provided. This pipeline is built for an Azure DevOps environment. Create a pipeline and reference this YAML file.
 
 > **IMPORTANT:** the QuickStart folder contains a web.config that is needed for deployment to IIS or Azure App Service. This enables the use of the json file for search requests. If you don't have this in place, the search of text will never return anything and result in 404's under the hood.
 
 You have to create a Service Connection in your DevOps environment to connect to the Azure Subscription you want to deploy to.
 
-> **IMPORTANT:** set the variables **AzureConnectionName** to the name of the Service Connection and the **AzureAppServiceName** to the name you determined in the *infrastructure/variables.tf*.
+> **IMPORTANT:** set the variables **AzureConnectionName** to the name of the Service Connection and the **AzureAppServiceName** to the name you determined in the *deployment/terraform/variables.tf*.
 
 In the QuickStart folder the pipeline uses `master` as trigger, which means that any push being done to master triggers the pipeline. You will probably change this to another branch.

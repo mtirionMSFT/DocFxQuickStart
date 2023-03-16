@@ -1,0 +1,57 @@
+{
+  "metadata": [
+      {
+        "src": [
+          {
+            "files": ["src/**.csproj"],
+            "exclude": [ "docs/**", "docfx/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
+          }
+        ],
+        "dest": "docs/reference",
+        "disableGitFeatures": false
+      }
+  ],
+  "build": {
+      "content": [
+          { "files": ["README.md", "docs/**/*.{md,yml}", "docfx/x-cross/*.yml"] }
+      ],
+      "resource": [
+          { "files": ["**/.attachments/**", "**/images/**" ] },
+          { "files": ["web.config"] }
+      ],
+      "xref": [
+        "docs/platform/xrefmap.yml"
+      ],
+      "template": [ "default", "./docfx/templates/website" ],
+      "globalMetadata": {
+          "_appTitle": "QuickStart Documentation",
+          "_appName": "QUickStart Documentation",
+          "_enableSearch": true,
+          "_enableNewTab": true
+      },
+      "postProcessors": [ "ExtractSearchIndex" ],
+      "markdownEngineName": "markdig",
+      "dest": "_site",
+      "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"]
+  },
+  "pdf": {
+    "name": "QuickStart-Documentation",
+    "coverTitle": "Quick Start Documentation",
+    "content": [
+      { "files": ["README.md", "docs/**/*.{md,yml}", "docfx/x-cross/*.yml"] }
+    ],
+    "resource": [
+      { "files": ["**/.attachments/**", "**/images/**" ] },
+      { "files": ["web.config"] }
+    ],
+    "template": ["pdf.default", "./docfx/templates/pdf"],
+    "globalMetadata": {
+      "_appTitle": "QuickStart Documentation"
+    },
+    "wkhtmltopdf": {
+      "additionalArguments": "--enable-local-file-access"
+    },
+    "markdownEngineName": "markdig",
+    "dest": "_pdf"
+  }
+}

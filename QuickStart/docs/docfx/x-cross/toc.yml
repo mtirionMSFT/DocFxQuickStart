@@ -1,5 +1,0 @@
-items:
-- name: Documentation
-  href: ../docs/toc.yml
-- name: Reference
-  href: ../output/reference/toc.yml
