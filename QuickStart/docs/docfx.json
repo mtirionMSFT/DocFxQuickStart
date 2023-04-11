@@ -1,0 +1,53 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../src",
+          "files": ["**.csproj"],
+          "exclude": ["**/bin/**", "**/obj/**", "**/[Tt]ests/**"]
+        }
+      ],
+      "dest": "./reference",
+      "includePrivateMembers": false,
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "noRestore": false,
+      "namespaceLayout": "flattened"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "*.{md,yml}",
+          "general/**/*.{md,yml}",
+          "services/**/*.{md,yml}",
+          "reference/**/*.{md,yml}",
+          ".docfx/x-cross/toc.yml"
+        ]
+      }
+    ],
+    "resource": [
+      { "files": [".attachments/**", "**/.attachments/**", "**/images/**"] },
+      { "files": ["web.config"] }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "QuickStart Documentation",
+      "_appName": "QUickStart Documentation",
+      "_appLogoPath": "images/logo.png",
+      "_appFaviconPath": "images/favicon.ico",
+      "_enableSearch": true,
+      "_enableNewTab": true
+    },
+    "template": ["default", ".docfx/templates/website"],
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "postProcessors": [],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "disableGitFeatures": false,
+    "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"]
+  }
+}

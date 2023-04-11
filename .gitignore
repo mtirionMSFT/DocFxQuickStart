@@ -3,8 +3,8 @@
 # DocFx generated files
 /QuickStart/docs/**/toc.yml
 /QuickStart/docs/reference/
-/QuickStart/_site
-/QuickStart/_pdf
+_site
+_pdf
 
 # User-specific files
 *.rsuser
