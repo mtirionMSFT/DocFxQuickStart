@@ -6,10 +6,27 @@ If you want an easy way to have a website with all your documentation coming fro
 
 To get you started quickly from scratch, a QuickStart folder is provided to get you started quickly. This way you can focus on the documentation 😁. If you want to get started quickly in your own repo, follow these steps:
 
-1. From the **QuickStart** folder copy these folders and files to your own repo:
-   * **docfx** - templates, cross reference configuration.
+1. From the **QuickStart** folder copy these folders and files to *the root* your own repo:
    * **.markdownlint.json** - a configuration file for *markdownlint*.
-   * **docfx.json** - The configuration for DocFx to generate a website and a PDF document
+   * **GenerateDocWebsite.cmd [OPTIONAL]** - a helper command file to go through the complete process of 1) run markdownlint 2) check links with DocLinkChecker 3) generate table of contents with DocFxTocGenerator and 4) generate the website using DocFx.
+
+   * **docs\docfx.json** - The configuration for DocFx to generate a website.
+
+     > [!NOTE]
+     > The build.content.files section references specific folders from this repo. You can change the list to your structure.
+
+   * **docs\\.docfx** - templates, cross reference configuration.
+
+     > [!NOTE]
+     >
+     > The .docfx\x-cross\toc.yml file references specific folders from this repo. You can change this to your structure.
+
+   * **docs\toc.yml** - this is the definition file for the top navigation of the website.
+
+      > [!NOTE]
+      > The docs\toc.yml file references specific folders from this repo. You can change this to your structure.
+
+   * **docs\index.md [OPTIONAL]** - this is the start file for the website. If you have your own index.md you don't need this.
 
 2. Some **optional** actions:
 
@@ -17,25 +34,23 @@ To get you started quickly from scratch, a QuickStart folder is provided to get 
 
      ```yaml
      # DocFx generated files
-     QuickStart/docs/**/toc.yml
-     QuickStart/docs/reference/
+     /docs/**/toc.yml
+     /docs/reference/
+     _site
      ```
 
-   * **web.config** - copy this file as well if you want to deploy to an IIS website. It contains a redirect from the root to /docs/readme.html. It also enables the necessary extension to be served by the website.
+     > [!NOTE]
+     >
+     > Make sure you add **docs\toc.yml** and **docs\\.docfx\x-cross\toc.yml** manual to your git repo using `git add [file] -f`. Otherwise you'll miss these files in the repo, preventing a good generation of the website. This files are edited manually.
 
-   * **GenerateDocWebsite.cmd** - a helper command file to go through the complete process of 1) run markdownlint 2) check links with DocLinkChecker 3) generate table of content with DocFxTocGenerator and 4) generate the website and PDF using DocFx.
+   * **docs\web.config** - copy this file as well if you want to deploy to an IIS website. The is also a redirect configured, but as comment. If you need an automatic redirect from the root folder you can uncomment this and tailor it to your needs.
 
-If you have taken care of the steps above, you can run the **GenerateDocWebsite.cmd** command file to generate the website and the PDF documentation. If you want to test the website on your local machine, you can add the **--serve** attribute to start a local web site on **<http://localhost:8080>**. If you use that parameter, the PDF is *not* generated though.
+   * If you have taken care of the steps above, you can run the **GenerateDocWebsite.cmd** command file to generate the website. If you want to test the website on your local machine, you can add the **--serve** attribute to start a local web site on **<http://localhost:8080>**.
 
 > [!NOTE]
 >
-> The *DocFx\GenerateDocWebsite.cmd* expects the [DocFx Companion Tools](https://github.com/Ellerbach/docfx-companion-tools) to be installed. You can do this using Chocolatey in a PowerShell window with Administrator privileges:
+> The *DocFx\GenerateDocWebsite.cmd* expects the [DocFx Companion Tools](https://github.com/Ellerbach/docfx-companion-tools) to be installed. See the [docfx-companion-tools repo](https://github.com/Ellerbach/docfx-companion-tools#install) for the options to install. 
 >
-> ```powershell
-> choco install docfx-companion-tools
-> ```
->
-> If you don't have Chocolatey on your machine, go to [the Chocolatey Install page](https://chocolatey.org/install) and follow the instructions.
 
 ## Publish the Documentation
 
