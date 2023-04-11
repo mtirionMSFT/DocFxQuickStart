@@ -29,30 +29,27 @@ The easiest is to work with a [mono repository](https://mtirion.medium.com/monor
 In the steps below we'll consider the generation of the documentation website from this content structure:
 
 ```xaml
-├── DocFx               // all documents
-│   ├── .pipelines      // Azure DevOps pipeline for automatic generation and deployment
-│   ├── infrastructure  // Terraform scripts for creation of the Azure website
-│   ├── templates       // Templates for website and PDF generation
-│   ├── GenerateDoc.cmd // Command file for local execution for generating website and PDF
-│   ├── web.config      // web.config to enable search in deployed website (IIS)
-│
-├── docs                // all documents
-│   ├── .attachments    // all images and other attachments used by documents
-│
-├── src                 // all projects
-│   ├── build           // build settings
-│          ├── dotnet   // .NET build settings
-│   ├── Directory.Build.props   // project settings for all .NET projects in sub folders
-│   ├── [Project folders]
-│
-├── x-cross
-│   ├── toc.yml         // Cross reference definition (optional)
-│
-├── .markdownlint.json  // Markdownlinter settings
-├── docfx.json          // DocFx configuration
-├── index.md            // Website landing page
-├── README.md           // Description of folders and files here (repo only, not in docs)
-├── toc.yml             // Definition of the website header content links
+📂QuickStart												// root
+	📂docs														// documentation root
+		📂.attachments									   // images and other attachments
+		📂.docfx											   // docfx configuration files
+			📂template										 // template (css) for website
+			📂x-cross										  // cross reference configuration
+		📂general											  // Sample general documentation
+		📂images											 // root images for favicon.ico and logo.png
+		📂services											 // Sample service documentation
+		📄.order											   // for ADO and TocGenerator. Determines order of files in a folder.
+		📄docfx.json									    // configuration of DocFx input and output
+		📄index.md                                          // root document of the website
+		📄toc.yml                                             // configuration of the top navigation of the website
+		📄web.config                                       // IIS configuration
+	📂src                                                        // Sample sources
+		📂build                                                // Shared compiler configuration settings
+		📂DotNetCoreSampleWebAPI           // Sample .NET web api 
+		📄Directory.Build.props                     // Loading shared compiler configuration settings in all child solutions/projects
+		📄index.md                                         // documentation
+	📄.markdownlint.json                             // Configuration file for markdownlint tool
+	📄GenerateDocWebsite.cmd                  // Batchfile for running linter, link checker, TOC generator and DocFx website generation
 ```
 
 We'll be using the `DocLinkChecker` tool to validate all links in documentation and for orphaned attachments. That's the reason we have all attachments in the `.attachments` folder.
@@ -67,7 +64,7 @@ A `.markdownlint.json` is included with the contents below. The [MD013 setting](
 }
 ```
 
-The contents of the **DocFx/.pipelines** and **DocFx/infrastructure** folders are explained in the recipe [Deploy the DocFx Documentation website to an Azure Website automatically](deploy-docfx-azure-website.md).
+The contents of the **/samples** folder is explained in the recipe [Deploy the DocFx Documentation website to an Azure Website automatically](deploy-docfx-azure-website.md).
 
 ## Reference documentation from source code
 
@@ -108,10 +105,10 @@ choco install markdownlint-cli
 
 ## 2.  Configure DocFx
 
-Configuration for DocFx is done in a `docfx.json` file. Store this file in the root of your repository.
+Configuration for DocFx is done in a `docs\docfx.json` file. Best is to store this file in the root of your docs folder.
 
 > [!NOTE]
-> You can store the docfx.json somewhere else in the hierarchy, but then you need to provide the path of the file as an argument to the docfx command so it can be located.
+> You can store the docfx.json somewhere else in the hierarchy, but then you need to provide the path of the file as an argument to the docfx command so it can be located. It can have side effects, like `~` not properly addressing the docs root.
 
 Below is a good configuration to start with, where documentation is in the **/docs** folder and the sources are in the **/src** folder:
 
@@ -121,121 +118,75 @@ Below is a good configuration to start with, where documentation is in the **/do
     {
       "src": [
         {
-          "files": ["src/**.csproj"],
-          "exclude": [ "output/_site/**", "output/_pdf/**", "DocFx/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
+          "src": "../src",
+          "files": ["**.csproj"],
+          "exclude": ["**/bin/**", "**/obj/**", "**/[Tt]ests/**"]
         }
       ],
-      "dest": "output/reference",
-      "disableGitFeatures": false
+      "dest": "./reference",
+      "includePrivateMembers": false,
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "noRestore": false,
+      "namespaceLayout": "flattened"
     }
   ],
   "build": {
     "content": [
       {
-        "files": ["output/reference/**"]
-      },
-      {
-        "files": ["**.md", "**/toc.yml"],
-        "exclude": [ "README.md", "output/_site/**", "output/_pdf/**", "DocFx/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
+        "files": [
+          "*.{md,yml}",
+          "general/**/*.{md,yml}",
+          "services/**/*.{md,yml}",
+          "reference/**/*.{md,yml}",
+          ".docfx/x-cross/toc.yml"
+        ]
       }
     ],
     "resource": [
-      {
-        "files": ["docs/.attachments/**"]
-      },
-      {
-        "src": "DocFx",
-        "files": ["web.config"]
-      }
+      { "files": [".attachments/**", "**/.attachments/**", "**/images/**"] },
+      { "files": ["web.config"] }
     ],
-    "template": ["DocFx/templates/cse"],
+    "dest": "_site",
     "globalMetadata": {
-      "_appTitle": "CSE Documentation",
-      "_enableSearch": true
+      "_appTitle": "QuickStart Documentation",
+      "_appName": "QUickStart Documentation",
+      "_appLogoPath": "images/logo.png",
+      "_appFaviconPath": "images/favicon.ico",
+      "_enableSearch": true,
+      "_enableNewTab": true
     },
-    "markdownEngineName": "markdig",
-    "dest": "output/_site",
+    "template": ["default", ".docfx/template"],
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "postProcessors": [],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "disableGitFeatures": false,
     "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"]
-  },
-  "pdf": {
-    "name": "CSE-Documentation",
-    "coverTitle": "CSE Documentation",
-    "content": [
-      {
-        "files": ["output/reference/**"]
-      },
-      {
-        "files": ["**.md", "x-cross/toc.yml"],
-        "exclude": [ "output/_site/**", "output/_pdf/**", "DocFx/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
-      }
-    ],
-    "resource": [
-      {
-        "files": ["docs/.attachments/**"]
-      }
-    ],
-    "template": ["DocFx/templates/pdf.cse"],
-    "globalMetadata": {
-      "_appTitle": "CSE Documentation"
-    },
-    "wkhtmltopdf": {
-      "additionalArguments": "--enable-local-file-access"
-    },
-    "markdownEngineName": "markdig",
-    "dest": "output/_pdf"
   }
 }
 ```
 
 ## 3. Setup some basic documents
 
-We suggest starting with a basic documentation structure in the **/docs** folder. In the provided QuickStart folder we have a basic setup:
-
-```xaml
-├── docs
-│   ├── .attachments               // All images and other attachments used by documents
-│
-│   ├── architecture-decisions
-│           └── .order
-│           └── decision-log.md    // Sample index into all ADRs
-│           └── README.md          // Landing page architecture decisions
-│
-│   ├── getting-started
-│           └── .order
-│           └── README.md          // This recipe document. Replace the content with something meaningful to the project
-│
-│   ├── guidelines
-│           └── .order
-│           └── docs-guidelines.md // General documentation guidelines
-│           └── README.md          // Landing page guidelines
-│
-│   ├── templates                  // all templates like ADR template and such
-│           └── .order
-│           └── README.md          // Landing page templates
-│
-│   ├── working-agreements
-│           └── .order
-│           └── README.md          // Landing page working agreements
-│
-│   ├── .order                     // Providing a fixed order of files and directories
-│   ├── index.md                   // Landing page documentation
-```
-
-You can use templates like working agreements and such from the [CSE Playbook](https://github.com/microsoft/code-with-engineering-playbook/).
+We suggest starting with a basic documentation structure in the **/docs** folder. In the provided QuickStart folder we have a basic setup. You can use templates like working agreements and such from the [CSE Playbook](https://github.com/microsoft/code-with-engineering-playbook/).
 
 To have a proper landing page of your documentation website, you can use a markdown file called INDEX.MD in the root of your repository. Contents can be something like this:
 
 ```markdown
-# My Documentation
+# QuickStart Documentation
 
-This is the landing page of the My Documentation website. This is the page to introduce everything on the website.
+This is the landing page of the QuickStart Documentation website. You can add specific links that are important to provide direct access.
 
-You can add specific links that are important to provide direct access.
-
+> [!TIP]
 > Try not to duplicate the links on the top of the page, unless it really makes sense.
 
-To get started with the setup of this website, read the getting started document.
+To get started with the setup of this website, read the getting started document with the title [Using DocFx and Companion Tools](./general/getting-started/README.md).
 
+## Style of this website
+
+This documentation website is currently setup with the basics of the [DocFx Material](https://ovasquez.github.io/docfx-material/) style added with the Microsoft logo. The combination can be found in **/QuickStart/docfx/template**.
 ```
 
 ## 4. Compile the companion tools and run them
@@ -249,12 +200,7 @@ To check for proper markdown formatting the **markdownlint-cli** tool is used. T
 markdownlint **/*.md
 ```
 
-In the QuickStart folder we've also included the two companion tools **TocDocFxCreation** and **DocLinkChecker**.
-
-> [!NOTE]
-> The QuickStart folder contains a static version of the companion tools. To use the latest version, download it from the [DocFx Companion Tools repository](https://github.com/Ellerbach/docfx-companion-tools).
-
-You can compile the tools from Visual Studio, but you can also run `dotnet build` in both tool folders.
+We're using the [docfx-companion-tools](https://github.com/Ellerbach/docfx-companion-tools) for checking links and TOC generation. Check [the install instructions](https://github.com/Ellerbach/docfx-companion-tools#install) how this can be done.
 
 The **DocLinkChecker** companion tool is used to validate what's in the docs folder. It validates links between documents and attachments in the docs folder and checks if there aren't orphaned attachments. An example of executing this tool, where the check of attachments is included:
 
@@ -262,10 +208,10 @@ The **DocLinkChecker** companion tool is used to validate what's in the docs fol
 DocLinkChecker.exe -d ./docs -a
 ```
 
-The **TocDocFxCreation** tool is needed to generate a table of contents for your documentation, so users can navigate between folders and documents. If you have compiled the tool, use this command to generate a table of content file `toc.yml`. To generate a table of contents with the use of the .order files for determining the sequence of articles and to automatically generate index.md documents if no default document is available in a folder, this command can be used:
+The **DocFxTocGenerator** tool is needed to generate a table of contents for your documentation, so users can navigate between folders and documents. If you have compiled the tool, use this command to generate a table of content file `toc.yml`. To generate a table of contents with the use of the .order files for determining the sequence of articles and to automatically generate index.md documents if no default document is available in a folder, this command can be used:
 
 ```shell
-TocDocFxCreation.exe -d ./docs -sri
+DocFxTocGeneration.exe -d ./docs -sri
 ```
 
 ## 5. Run DocFx to generate the website
@@ -277,7 +223,7 @@ Run the `docfx` command to generate the website, by default in the **_site** fol
 
 ### Style of the website
 
-If you started with the QuickStart folder, the website is generated using a custom theme using [material design](https://ovasquez.github.io/docfx-material/) and the Microsoft logo. You can change this to your likings. For more information see [How-to: Create A Custom Template | DocFX website (dotnet.github.io)](https://dotnet.github.io/docfx/tutorial/howto_create_custom_template.html).
+If you started with the QuickStart folder, the website is generated using a custom theme using [material design](https://ovasquez.github.io/docfx-material/) and the Microsoft logo. The logo and favorite icon are images that are configured in docfx.json. You can change this to your likings. For more information see [How-to: Create A Custom Template | DocFX website (dotnet.github.io)](https://dotnet.github.io/docfx/tutorial/howto_create_custom_template.html).
 
 ## Deploy to an Azure Website
 

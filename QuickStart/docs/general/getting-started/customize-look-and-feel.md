@@ -8,19 +8,15 @@ For this website we created a custom template with a few extra's. That results i
 
 ![Default Template](../../.attachments/templates-custom.png)
 
-In **DocFx\templates** you can find custom templates for generating the documentation website and PDF. The basic template is first referenced in **docfx.json** to apply the defaults. As second template our custom template is configured. This will add or overwrite files of the default.
+In **docs\\.docfx\template** you can find the custom template for generating the documentation website. The basic template is first referenced in **docfx.json** to apply the defaults. As second template our custom template is configured. This will add or overwrite files of the default, in our case just *main.css*.
 
 ## Material design
 
-We chose the [DocFx Material Theme](https://ovasquez.github.io/docfx-material/) as a starting point of our custom template. The Material.zip was downloaded and extracted. It contains a modified **styles\main.css** and a modified **partials\head.tmpl.partial**.
-
-> [!WARNING]
->
-> In the unique case the default template of a newer DocFx version would be changed, this custom overwrite template might cause problems or parts being ignored. If you see strange behavior, Check the custom parts with the parts from the default template. More information can be found in [How-to: Create A Custom Template](https://dotnet.github.io/docfx/tutorial/howto_create_custom_template.html).
+We chose the [DocFx Material Theme](https://ovasquez.github.io/docfx-material/) as a starting point of our custom template. The Material.zip was downloaded and extracted. It contains a modified **styles\main.css**.
 
 ## Mermaid support
 
-To enable the rendering of [Mermaid](https://mermaid-js.github.io/mermaid/#/) diagrams in the documentation website, the code below is added to **partials\scripts.tmpl.partial**.
+To enable the rendering of [Mermaid](https://mermaid-js.github.io/mermaid/#/) diagrams in the documentation website, the code below can be added to **partials\scripts.tmpl.partial**.
 
 ```html
 <!-- mermaid support -->
@@ -67,13 +63,9 @@ gantt
     Testing      :crit, 20d
 ```
 
-> [!WARNING]
->
-> Currently this doesn't work for the generation of a PDF!
-
 ## 'Copy code'-button
 
-It can be desireable to have a copy button on code blocks to copy the contents to the clipboard for easy re-use. We have added this solution to the template for the website. In the **Styles** folder two files were added: **copyCodeButton.css** and **copyCodeButton.js**. In **partials\scripts.tmpl.partial** the JavaScript file is referenced:
+It can be desirable to have a copy button on code blocks to copy the contents to the clipboard for easy re-use. We have added this solution to the template for the website. In the **Styles** folder two files were added: **copyCodeButton.css** and **copyCodeButton.js**. In **partials\scripts.tmpl.partial** the JavaScript file is referenced:
 
 ```html
 ...
@@ -105,18 +97,19 @@ When a user clicks the Copy-button, the contents is copied into the clipboard an
 
 ![Website logo](../../.attachments/website-logo.png)
 
-The logo of the website is **logo.svg** in the root of the template folder. This can be overwritten with your own logo.
+The logo of the website is **images\logo.png**. The configuration is done in docfx.json for both the logo to use and the favorite icon to use like this:
 
-If you want to use your own logo, you need a SVG format of your logo. If you have another format, use a website like [Convertio](https://convertio.co/png-svg/) to upload a PNG and have it converted to an SVG that can be downloaded.
-
-If you have an SVG but it's not the right size, you can use a website like [I♥️IMG](https://www.iloveimg.com/resize-image/resize-svg) to resize it. You can upload your SVG and set the size to 48x48 pixels and click **Resize IMAGES**. The image is then downloaded.
-
-Put your logo.svg in the root of the template folder.
+```json
+    "globalMetadata": {
+      "_appTitle": "QuickStart Documentation",
+      "_appName": "QUickStart Documentation",
+      "_appLogoPath": "images/logo.png",
+      "_appFaviconPath": "images/favicon.ico",
+      "_enableSearch": true,
+      "_enableNewTab": true
+    }
+```
 
 ## Header Bar Color
 
 If you want to change the color of the header bar, open **styles\main.css** and modify the **--header-bg-color** value. If you want to make sure it's a web safe color, you can use a website like [Color Tools.NET](https://www.colortools.net/color_make_web-safe.html) to make your selected color web safe.
-
-## PDF Header Styling
-
-If you want to change the color of the **Table of Contents** box, open the **toc.html.tmpl** in the root of the **PDF** template.

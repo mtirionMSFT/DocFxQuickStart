@@ -41,7 +41,7 @@
       "_enableSearch": true,
       "_enableNewTab": true
     },
-    "template": ["default", ".docfx/templates/website"],
+    "template": ["default", ".docfx/template"],
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "postProcessors": [],
