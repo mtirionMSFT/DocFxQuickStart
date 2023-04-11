@@ -29,27 +29,27 @@ The easiest is to work with a [mono repository](https://mtirion.medium.com/monor
 In the steps below we'll consider the generation of the documentation website from this content structure:
 
 ```xaml
-📂QuickStart												// root
-	📂docs														// documentation root
-		📂.attachments									   // images and other attachments
-		📂.docfx											   // docfx configuration files
-			📂template										 // template (css) for website
-			📂x-cross										  // cross reference configuration
-		📂general											  // Sample general documentation
-		📂images											 // root images for favicon.ico and logo.png
-		📂services											 // Sample service documentation
-		📄.order											   // for ADO and TocGenerator. Determines order of files in a folder.
-		📄docfx.json									    // configuration of DocFx input and output
-		📄index.md                                          // root document of the website
-		📄toc.yml                                             // configuration of the top navigation of the website
-		📄web.config                                       // IIS configuration
-	📂src                                                        // Sample sources
-		📂build                                                // Shared compiler configuration settings
-		📂DotNetCoreSampleWebAPI           // Sample .NET web api 
-		📄Directory.Build.props                     // Loading shared compiler configuration settings in all child solutions/projects
-		📄index.md                                         // documentation
-	📄.markdownlint.json                             // Configuration file for markdownlint tool
-	📄GenerateDocWebsite.cmd                  // Batchfile for running linter, link checker, TOC generator and DocFx website generation
+📂QuickStart // root
+  📂docs // documentation root
+    📂.attachments // images and other attachments
+    📂.docfx // docfx configuration files
+      📂template // template (css) for website
+      📂x-cross // cross reference configuration
+    📂general // Sample general documentation
+    📂images // root images for favicon.ico and logo.png
+    📂services // Sample service documentation
+    📄.order // for ADO and TocGenerator. Determines order of files in a folder.
+    📄docfx.json // configuration of DocFx input and output
+    📄index.md // root document of the website
+    📄toc.yml // configuration of the top navigation of the website
+    📄web.config // IIS configuration
+  📂src // Sample sources
+    📂build // Shared compiler configuration settings
+    📂DotNetCoreSampleWebAPI // Sample .NET web api 
+    📄Directory.Build.props // Force settings in all child solutions/projects
+    📄index.md // documentation
+  📄.markdownlint.json // Configuration file for markdownlint tool
+  📄GenerateDocWebsite.cmd // Batchfile for running generation
 ```
 
 We'll be using the `DocLinkChecker` tool to validate all links in documentation and for orphaned attachments. That's the reason we have all attachments in the `.attachments` folder.
