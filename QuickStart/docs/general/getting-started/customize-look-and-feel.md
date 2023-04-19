@@ -8,7 +8,7 @@ For this website we created a custom template with a few extra's. That results i
 
 ![Default Template](../../.attachments/templates-custom.png)
 
-In **docs\\.docfx\template** you can find the custom template for generating the documentation website. The basic template is first referenced in **docfx.json** to apply the defaults. As second template our custom template is configured. This will add or overwrite files of the default, in our case just *main.css*.
+In **docs\\.docfx\template** you can find the custom template for generating the documentation website. The basic template is first referenced in **docfx.json** to apply the defaults. As second template our custom template is configured. This will add or overwrite files of the default, in our case at least *main.css*. In the template we also enabled diagram support through [Mermaid](https://mermaid.js.org) in *scripts.tmpl.partial*.
 
 ## Material design
 
@@ -19,15 +19,10 @@ We chose the [DocFx Material Theme](https://ovasquez.github.io/docfx-material/) 
 To enable the rendering of [Mermaid](https://mermaid-js.github.io/mermaid/#/) diagrams in the documentation website, the code below can be added to **partials\scripts.tmpl.partial**.
 
 ```html
-<!-- mermaid support -->
-<script type="text/javascript" src="https://unpkg.com/mermaid@8.5.2/dist/mermaid.min.js"
-        integrity="sha384-dV0RNdYNgPqjamYrB83Q21NNeuYk1jpKyUBkKQrT+c7krNFk4k39ktYZV4mOdMV1"
-        crossorigin="anonymous"></script>
-<script>
-    mermaid.initialize({
-        startOnLoad: false
-    });
-    mermaid.init(undefined, ".lang-mermaid");
+<!-- Support for diagrams (Mermaid). See https://mermaid.js.org/intro/n00b-gettingStarted.html -->
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
 </script>
 ```
 
@@ -69,9 +64,7 @@ It can be desirable to have a copy button on code blocks to copy the contents to
 
 ```html
 ...
-<script type="text/javascript" src="{{_rel}}styles/docfx.js"></script>
-<script type="text/javascript" src="{{_rel}}styles/copyCodeButton.js"></script>
-<script type="text/javascript" src="{{_rel}}styles/main.js"></script>
+<script type="text/javascript" src="{{_rel}}styles/copy-code-button.js"></script>
 ...
 ```
 
@@ -79,9 +72,7 @@ And in **partials\head.tmpl.partial** the CSS file is referenced:
 
 ```html
 ...
-  <link rel="stylesheet" href="{{_rel}}styles/docfx.css">
-  <link rel="stylesheet" href="{{_rel}}styles/copyCodeButton.css">
-  <link rel="stylesheet" href="{{_rel}}styles/main.css">
+  <link rel="stylesheet" href="{{_rel}}styles/copy-code-button.css">
 ...
 ```
 

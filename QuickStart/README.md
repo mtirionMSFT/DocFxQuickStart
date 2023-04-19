@@ -7,7 +7,7 @@ Below a description of the files and folders in the Quick Start folder.
   📂docs // documentation root
     📂.attachments // images and other attachments
     📂.docfx // docfx configuration files
-      📂template // template (css) for website
+      📂template // docfx template for website
       📂x-cross // cross reference configuration
     📂general // Sample general documentation
     📂images // root images for favicon.ico and logo.png

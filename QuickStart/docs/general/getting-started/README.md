@@ -33,7 +33,7 @@ In the steps below we'll consider the generation of the documentation website fr
   📂docs // documentation root
     📂.attachments // images and other attachments
     📂.docfx // docfx configuration files
-      📂template // template (css) for website
+      📂template // docfx template for website
       📂x-cross // cross reference configuration
     📂general // Sample general documentation
     📂images // root images for favicon.ico and logo.png
@@ -163,7 +163,14 @@ Below is a good configuration to start with, where documentation is in the **/do
     "noLangKeyword": false,
     "keepFileLink": false,
     "disableGitFeatures": false,
-    "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"]
+    "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"],
+    "markdownEngineName": "markdig",
+    "markdownEngineProperties": {
+      "markdigExtensions": [
+        "tasklists",
+        "diagrams"
+      ]
+    }
   }
 }
 ```
@@ -186,7 +193,7 @@ To get started with the setup of this website, read the getting started document
 
 ## Style of this website
 
-This documentation website is currently setup with the basics of the [DocFx Material](https://ovasquez.github.io/docfx-material/) style added with the Microsoft logo. The combination can be found in **/QuickStart/docfx/template**.
+This documentation website is currently setup with the basics of the [DocFx Material](https://ovasquez.github.io/docfx-material/) style added with the Microsoft logo. The combination can be found in **/QuickStart/docfx/template**. Support for Mermaid and a copy-code button is added to the custom template as well.
 ```
 
 ## 4. Compile the companion tools and run them
