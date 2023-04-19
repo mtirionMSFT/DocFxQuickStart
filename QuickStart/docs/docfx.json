@@ -48,6 +48,13 @@
     "noLangKeyword": false,
     "keepFileLink": false,
     "disableGitFeatures": false,
-    "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"]
+    "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"],
+    "markdownEngineName": "markdig",
+    "markdownEngineProperties": {
+      "markdigExtensions": [
+        "tasklists",
+        "diagrams"
+      ]
+    }
   }
 }
